@@ -80,23 +80,15 @@ void loop() {
 
 
   //TODO: CHECK IF THE CARD UID IS VALID
-  if (roomNumbers[card_uid] == THISROOM) {
-    Serial.println("Access granted");
-//    digitalWrite(outPin, HIGH);
+  if (card_uid) {
+    Serial.println("This card uid: ");
+
     lcd.setCursor(0, 0);
     lcd.print("Access granted");
-    Serial.println(roomNumbers[card_uid]);
+    Serial.println(card_uid);
     lcd.setCursor(0, 1);
-    lcd.print(roomNumbers[card_uid]);
-  } else {
-    Serial.println("Access denied");
-//    digitalWrite(outPin, LOW); 
-    lcd.setCursor(0, 0);
-    lcd.print("Access denied");
-    delay(2000);
-    lcd.clear();
-    return;
-  }
+    lcd.print(card_uid);
+  } 
   while (true) {
     Serial.println("Card is still here");
     control = 0;

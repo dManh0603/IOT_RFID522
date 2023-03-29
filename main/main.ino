@@ -5,17 +5,19 @@
 
 #include <Wire.h> //Gọi thư viện I2C để sử dụng các thư viện I2C
 #include <LiquidCrystal_I2C.h> //Thư viện LCD I2C
+#include "data.h"
 
 #define SS_PIN 10
 #define RST_PIN 9
-
-String THISROOM = "Room 602";
 const int outPin = 8;
+
+const String THISROOM = "Room 602";
+
 LiquidCrystal_I2C lcd(0x27, 16, 2); //Khai báo địa chỉ I2C (0x27 or 0x3F) và LCD 16x02
-std::map<String, String> roomNumbers = {
-  {"162 191 249 33", "Room 602" },
-  {"10 223 136 23", "Room 603"}
-};
+//std::map<String, String> roomNumbers = {
+//  {"162 191 249 33", "Room 602" },
+//  {"10 223 136 23", "Room 603"}
+//};
 
 MFRC522 mfrc522(SS_PIN, RST_PIN); // Khởi tạo đối tượng MFRC522
 
